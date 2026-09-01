@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DocuStruct AI</title><link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header><div class="brand"><span class="mark">DS</span><span>DocuStruct AI</span></div><a href="/docs">API docs ↗</a></header>
+  <main>
+    <section class="hero"><p class="eyebrow">DOCUMENT INTELLIGENCE WORKFLOW</p><h1>From PDF chaos to<br><em>validated data.</em></h1><p class="lede">Extract structured invoice data, measure confidence, and route uncertain results to a human before export.</p></section>
+    <section class="workspace">
+      <div class="panel upload-panel"><div><span class="step">01</span><h2>Upload invoices</h2><p>PDF only · 10 MB maximum · up to 20 per batch</p></div>
+        <label class="drop" id="drop"><input id="files" type="file" accept="application/pdf" multiple><span class="upload-icon">↑</span><strong>Drop PDFs here</strong><small>or click to browse</small></label>
+        <button id="process" disabled>Process documents <span>→</span></button><p id="message" role="status"></p>
+      </div>
+      <div class="panel"><div class="panel-head"><div><span class="step">02</span><h2>Processing queue</h2></div><button class="ghost" id="refresh">Refresh</button></div><div id="documents" class="list"><p class="empty">No documents yet. Upload a synthetic sample to begin.</p></div></div>
+    </section>
+    <section class="trust"><div><b>Schema-first</b><span>JSON Schema validation</span></div><div><b>Reviewable</b><span>Field-level confidence</span></div><div><b>Portable</b><span>JSON and CSV exports</span></div><div><b>Private by design</b><span>Local storage default</span></div></section>
+  </main><script src="/assets/app.js"></script>
+</body></html>
+

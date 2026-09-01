@@ -1,0 +1,1 @@
+"""DocuStruct AI application package."""
