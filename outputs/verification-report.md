@@ -1,7 +1,7 @@
 # DocuStruct AI — local verification report
 
 Date: 2026-09-01  
-Scope: local source and runtime only; a local `main` Git repository was initialized, but no commit, remote repository, or publication action was performed.
+Scope: local source and runtime evidence, plus the observed result of remote GitHub Actions run `33540921143`.
 
 ## Outcome
 
@@ -25,7 +25,7 @@ DocuStruct AI is ready for local demonstration and a publication review. The tes
 | Secret hygiene | Verified with noted defaults | Scan found only empty `LLM_API_KEY`, typed config field, and the documented local-only Compose database password |
 | OCR quality | Not run | Runtime dependency exists, but a scanned-PDF fixture and accuracy assertion remain future work |
 | Hosted LLM | Not implemented | Provider interface exists; deterministic offline provider is the only included adapter |
-| Remote CI | Unverified | GitHub Actions workflow exists, but no remote repository or run exists |
+| Remote CI | Rerun pending | Run `33540921143` failed because ignored `work/` did not exist on a fresh checkout; the local fix creates the test runtime boundary before SQLAlchemy engine import and passes 7/7 tests at 92.38% coverage |
 
 ## Reproduce
 
@@ -33,4 +33,4 @@ Follow [docs/demo.md](../docs/demo.md). If host port 8000 is occupied, set `APP_
 
 ## Publication gate
 
-Before publication: review and commit the current candidate set, repeat secret and local-path scans, then create the remote only after explicit authorization. After pushing, verify the public tree and the first GitHub Actions run before adding CI badges or claiming remote CI success.
+Before republishing: review and commit the current fix, repeat secret and local-path scans, push only with explicit authorization, then verify the public tree and replacement GitHub Actions run before adding CI badges or claiming remote CI success.

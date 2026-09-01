@@ -84,7 +84,7 @@ samples/                   safe synthetic demo PDFs
 | PostgreSQL container workflow | **Verified** | PostgreSQL and app became healthy; live upload, review routing, JSON export, and UI ran on host port 8001 |
 | Browser UI | **Verified** | Home page rendered meaningful content, document statuses and export actions; no error overlay or browser console errors detected |
 | OCR fallback on scanned PDF | **Not run** | Tesseract is installed in the image; no scanned-image quality fixture is included yet |
-| GitHub Actions | **Unverified** | Workflow is configured; no remote repository or CI run exists |
+| GitHub Actions | **Rerun pending** | Run `33540921143` exposed a clean-checkout test-directory defect; the fix passes Ruff and 7/7 tests locally at 92.38% coverage and awaits publication/rerun |
 
 Verification was performed locally on 2026-09-01. See the [full evidence report](outputs/verification-report.md).
 

@@ -1,14 +1,21 @@
 import os
-
-os.environ["DATABASE_URL"] = "sqlite:///./work/test.db"
-os.environ["STORAGE_ROOT"] = "./work/test-uploads"
+from pathlib import Path
 
 import fitz
 import pytest
 from fastapi.testclient import TestClient
 
-from app.database import Base, engine
-from app.main import app
+# The CI checkout intentionally excludes work/. SQLite cannot create a database
+# when its parent directory is absent, so establish the test runtime boundary
+# before importing app.database (which creates the engine at import time).
+TEST_WORK_ROOT = Path(__file__).resolve().parents[1] / "work"
+TEST_WORK_ROOT.mkdir(parents=True, exist_ok=True)
+
+os.environ["DATABASE_URL"] = f"sqlite:///{(TEST_WORK_ROOT / 'test.db').as_posix()}"
+os.environ["STORAGE_ROOT"] = str(TEST_WORK_ROOT / "test-uploads")
+
+from app.database import Base, engine  # noqa: E402
+from app.main import app  # noqa: E402
 
 
 def make_pdf(text: str) -> bytes:
